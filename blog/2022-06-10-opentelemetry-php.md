@@ -119,7 +119,7 @@ $rootSpan = $tracer->spanBuilder('root')->setSpanKind(SpanKind::KIND_SERVER)->st
 $rootScope = $rootSpan->activate();
 ```
 
-Create and initiate your first span:
+Create and activate your first span:
 
 ```go
 $span1 = $tracer->spanBuilder('foo')->setSpanKind(SpanKind::KIND_SERVER)->startSpan();
@@ -377,6 +377,7 @@ Initialize the Tracer Provider (using environment variables):
 ```php
 $factory = new TracerProviderFactory();
 $tracerProvider = $factory->create();
+$tracer = $tracerProvider->getTracer('io.signoz.php.example');
 ```
 
 Create and activate your root span:
